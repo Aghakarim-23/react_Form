@@ -5,7 +5,7 @@ import Register from './pages/register/Register.jsx'
 
 const App = () => {
   return (
-    <Login/>
+    <Register/>
   )
 }
 
