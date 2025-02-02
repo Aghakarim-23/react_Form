@@ -1,11 +1,29 @@
 import React from 'react'
+import { BrowserRouter, Routes, Route, Navigate  } from "react-router";
+import Home from './pages/home/Home.jsx'
 import Login from './pages/login/Login.jsx'
 import Register from './pages/register/Register.jsx'
+import NotFound from './common/NotFound.jsx';
 
 
 const App = () => {
+  const token = true
+
   return (
-    <Register/>
+    <BrowserRouter>
+      <Routes>
+        <Route 
+        path="/" 
+        element={<Navigate to="/login" replace={true} />} />
+        <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
+        {
+            token && <Route path="/home" element={<Home />} />
+        }
+        <Route path="*" element={<NotFound/>}/>
+      </Routes>
+   </BrowserRouter>
+   
   )
 }
 

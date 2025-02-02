@@ -1,7 +1,10 @@
 import {useState} from 'react'
 import Form from '../../common/Form'
+import { useNavigate } from 'react-router'
 
 const Login = () => {
+  const navigate = useNavigate()
+
   const [formData, setFormData] = useState({})
 
   const formInputs = [
@@ -27,9 +30,7 @@ const Login = () => {
     {
       text: "Login",
       style: "bg-blue-600 py-3 rounded-md text-white hover:cursor-pointer mt-3",
-      action: () => {
-        console.log(formData)
-      } 
+      action: () => {navigate("/home", {state: {message: "Salam"}})} 
       
     }
   ]
