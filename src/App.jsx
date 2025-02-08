@@ -4,6 +4,7 @@ import Home from './pages/home/Home.jsx'
 import Login from './pages/login/Login.jsx'
 import Register from './pages/register/Register.jsx'
 import NotFound from './common/NotFound.jsx';
+import Count from './pages/Count.jsx';
 
 
 const App = () => {
@@ -15,12 +16,13 @@ const App = () => {
         <Route 
         path="/" 
         element={<Navigate to="/login" replace={true} />} />
-        <Route path="login" element={<Login />} />
-        <Route path="register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         {
             token && <Route path="/home" element={<Home />} />
         }
         <Route path="*" element={<NotFound/>}/>
+        <Route path='/count' element={<Count/>}></Route>
       </Routes>
    </BrowserRouter>
    

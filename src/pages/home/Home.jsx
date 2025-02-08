@@ -1,31 +1,35 @@
-import React, { useState, useEffect } from 'react'
-import { useLocation } from 'react-router'
+import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router'
+import UserCard from './components/UserCard'
 
 const Home = () => {
-  const [msg, setMsg] = useState("")
+  const [users , setUsers] = useState([])
+  const navigate = useNavigate()
 
-  const location = useLocation() 
-  const message = location.state?.message
+  const getData = async () => {
+    try {
+      const response = await fetch("https://jsonplaceholder.typicode.com/users")
+      const data = await response.json()
+      setUsers(data)
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
-
-  /* 
-    actually i didn't get it what happen here -_-
-  */
-
-    /* 
-      1. useEffect işləyir setMsg (consola 1 dəfə homedan gələn messageni yazdırır)
-      2. setMsg Homedan gələn mesajı  buttona klik edəndən sonra saxlayır
-      2. amma sonra nə etməliyəm bu ümumiyyətlə necə baş verir onu anlamadım
-    */
 
   useEffect(() => {
-    setMsg(message)
-    console.log(message);
-  },[msg])
+    getData()
+  },[])
+ 
 
+  
+  
 
   return (
-    <div>{message}</div>
+    <div className='grid grid-cols-4 gap-2 p-5'>
+      {users.map(user => <UserCard user={user} />)}
+    </div>
   )
 }
 

@@ -7,7 +7,10 @@ const Input = ({inputData}) => {
         <label htmlFor={label}>{label}</label>
         <input
         onChange={(e) => setFormData(prevState => ({...prevState, [name]: e.target.value}))}
-        type={type} name={name} placeholder={placeholder}  className={style} />
+        type={type}
+        name={name}
+        placeholder={placeholder} 
+        className={style} />
     </div>
   )
 }

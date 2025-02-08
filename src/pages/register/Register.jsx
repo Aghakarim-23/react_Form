@@ -42,8 +42,8 @@ const Register = () => {
   const formButtons = [
     {
       text: "Register",
-      action: () => {console.log(formData)} ,
-      style: "bg-blue-600 py-3 rounded-md bg-red-600 text-white hover:cursor-pointer mt-3"
+      style: "bg-blue-600 py-3 rounded-md bg-red-600 text-white hover:cursor-pointer mt-3",
+      action: () => {console.log(formData)} 
       
     }
   ]
