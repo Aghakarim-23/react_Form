@@ -5,6 +5,7 @@ import Login from './pages/login/Login.jsx'
 import Register from './pages/register/Register.jsx'
 import NotFound from './common/NotFound.jsx';
 import Count from './pages/Count.jsx';
+import UserDetails from './userDetails/UserDetails.jsx';
 
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
         }
         <Route path="*" element={<NotFound/>}/>
         <Route path='/count' element={<Count/>}></Route>
+        <Route path='/userDetails' element={<UserDetails/>}></Route>
       </Routes>
    </BrowserRouter>
    

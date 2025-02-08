@@ -11,7 +11,6 @@ const Home = () => {
       const response = await fetch("https://jsonplaceholder.typicode.com/users")
       const data = await response.json()
       setUsers(data)
-      console.log(data);
     } catch (error) {
       console.error(error);
     }
@@ -23,13 +22,12 @@ const Home = () => {
   },[])
  
 
-  
-  
-
   return (
-    <div className='grid grid-cols-4 gap-2 p-5'>
-      {users.map(user => <UserCard user={user} />)}
-    </div>
+            <div className='grid grid-cols-4 gap-2 p-5'>
+
+                {users.map(user => <UserCard user={user} />)}
+
+            </div>
   )
 }
 
